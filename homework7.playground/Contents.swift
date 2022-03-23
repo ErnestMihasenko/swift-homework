@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 class School {
     var students = [Student]()
@@ -7,7 +8,7 @@ class School {
         self.students = students
     }
     func printInfo() {
-        let info = students
+        let info = [firstStudent, secondStudent, thirdStudent, fourthStudent]
         print(info)
     }
 }
@@ -22,10 +23,10 @@ class Student {
     let marks: [String: Int]
     let grade: Int
     
-    init(name: String,
-         surname: String,
-         marks: [String: Int] = ["Нет оценок": 0],
-         grade: Int = 0) {
+    init(name: String = "name",
+         surname: String = "name",
+         marks: [String: Int] = [:],
+         grade: Int = 1) {
         self.name = name
         self.surname = surname
         self.marks = marks
@@ -40,5 +41,5 @@ class Student {
 
 let firstStudent = Student(name: "Павлик", surname: "Волков", marks: ["Математика": 3], grade: 5)
 let secondStudent = Student(name: "Маша", surname: "Волкова", marks: ["Математика": 3], grade: 5)
-let thirdStudent = Student(name: "Антон", surname: "Липень", grade: 5)
+let thirdStudent = Student(name: "Антон", surname: "Липень", marks: ["Английский": 5, "Русский": 5, "Физика": 5], grade: 5)
 let fourthStudent = Student(name: "Алена", surname: "Воронина", marks: ["Английский": 9, "Русский": 7, "Физика": 4], grade: 8)
