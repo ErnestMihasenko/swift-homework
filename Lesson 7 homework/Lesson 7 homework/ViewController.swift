@@ -26,8 +26,8 @@ class School {
         self.students = students
     }
     func printInfo() {
-        for info in [firstStudent.printInfo(), secondStudent.printInfo(), thirdStudent.printInfo(), fourthStudent.printInfo()] {
-        print(info)
+        for info in students {
+            info.printInfo()
         }
     }
 }
@@ -48,10 +48,9 @@ class Student {
         self.surname = surname
         self.marks = marks
         self.grade = grade
-    }
+        }
     func printInfo() {
         let info = "Имя: \(name)\n" + "Фамилия: \(surname)\n" + "(\(grade) класс)\n" + "\(marks)"
-        
         print(info)
     }
 }
