@@ -17,39 +17,39 @@ struct ContentView: View {
     }
 }
 
+let purpleColor = Color.purple
+let brownColor = Color.brown
+let cornerRadius: CGFloat = 50
+let customFont: Font = .custom("Marker Felt", size: 50)
+let modifierString = "upper label"
 
 struct FontViewModifier: ViewModifier {
     func body(content: Content) -> some View {
             content
-                .font(.custom("Marker Felt", size: 50))
-                .foregroundColor(.brown)
+                .font(customFont)
+                .foregroundColor(brownColor)
         }
-    
 }
 
 struct BackGroundViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color.purple)
-            .cornerRadius(50)
+            .background(purpleColor)
+            .cornerRadius(cornerRadius)
     }
 }
 
 struct UpperLabelModifier: ViewModifier {
-    var text: String
     
     func body(content: Content) -> some View {
-        ZStack(alignment: .top) {
-            content
-            Text(text)
+        VStack(spacing: 10) {
+            Text(modifierString)
                 .font(.largeTitle)
                 .foregroundColor(.black)
+            content
         }
     }
-    
 }
-
-
 
 extension View {
     func fontViewModifier() -> some View {
@@ -61,11 +61,9 @@ extension View {
     }
     
     func upperLabelModifier() -> some View {
-        modifier(UpperLabelModifier(text: "upper label"))
+        modifier(UpperLabelModifier())
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
